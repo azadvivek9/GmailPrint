@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gmail Credential Card</title>
+    <style>
+        /* Base Styling */
+        body {
+            font-family: 'Times New Roman', Times, serif;
+            background-color: #ffffff;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            min-height: 100vh;
+        }
+
+        /* Main Container */
+        .container {
+            width: 100%;
+            max-width: 700px;
+            text-align: center;
+            position: relative;
+            box-sizing: border-box;
+            border: 1px solid black;
+        }
+
+        /* Print Button Styling */
+        .print-btn {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            background-color: #1a73e8;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            font-size: 16px;
+            font-family: Arial, sans-serif;
+            border-radius: 5px;
+            cursor: pointer;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+            transition: background-color 0.3s;
+        }
+
+        .print-btn:hover {
+            background-color: #0c56bd;
+        }
+
+        /* Top Gmail Logo */
+        .gmail-logo {
+            width: 100%;
+            max-width: 600px;
+            margin-bottom: 60px;
+            margin-top: 20px;
+        }
+
+        /* Editable Name Styling */
+        .name-field {
+            color: red;
+            font-size: 50px;
+            font-weight: bold;
+            text-transform: uppercase;
+            margin-bottom: 70px;
+            letter-spacing: 1px;
+            outline: none;
+        }
+
+        /* Information Rows (Email & Password) */
+        .info-container {
+            text-align: left;
+            margin: 0 auto;
+            width: 85%;
+            font-size: 28px;
+            font-weight: bold;
+            line-height: 1.8;
+            margin-bottom: 80px;
+        }
+
+        .info-row {
+            margin-bottom: 30px;
+        }
+
+        .label {
+            color: black;
+        }
+
+        .email-val {
+            color: blue;
+            outline: none;
+            margin-left: 5px;
+        }
+
+        .pass-val {
+            color: black;
+            outline: none;
+            margin-left: 5px;
+        }
+
+        /* Footer Area */
+        .footer-area {
+            text-align: center;
+            margin-top: 60px;
+        }
+
+        .create-by-text {
+            margin-top: 50px;
+            color: #b3b3b3;
+            font-size: 26px;
+            font-weight: bold;
+            margin-bottom: 15px;
+        }
+
+        .bottom-img {
+            width: 100%;
+            max-width: 650px;
+        }
+
+        /* Editable fields hover/focus effect (UI indicator) */
+        [contenteditable="true"] {
+            border-bottom: 1px dashed transparent;
+            transition: border-bottom 0.2s;
+        }
+
+        [contenteditable="true"]:hover {
+            border-bottom: 1px dashed #ccc;
+            cursor: text;
+        }
+
+        [contenteditable="true"]:focus {
+            border-bottom: 1px dashed #1a73e8;
+            background-color: #f8faff;
+        }
+
+        /* Print Media Query - Hides button and styling effects when printing */
+        @media print {
+            body {
+                background-color: white;
+            }
+            .print-btn {
+                display: none;
+            }
+            [contenteditable="true"]:hover, [contenteditable="true"]:focus {
+                border-bottom: 1px dashed transparent;
+                background-color: transparent;
+            }
+            /* Adjust margins slightly for print to ensure it fits one page */
+            .container {
+                padding-top: 0;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <!-- Print Button -->
+        <button class="print-btn" onclick="window.print()">🖨️ Print</button>
+
+        <!-- Top Logo -->
+        <!-- Fallback image is provided just in case gmaillogo.jpg is not loaded in preview -->
+        <img src="gmaillogo.jpg" alt="Gmail Logo" class="gmail-logo" onerror="this.src='https://upload.wikimedia.org/wikipedia/commons/thumb/7/7e/Gmail_icon_%282020%29.svg/512px-Gmail_icon_%282020%29.svg.png'; this.style.width='150px';">
+
+        <!-- Editable Name -->
+        <div class="name-field" contenteditable="true" title="Click to edit Name">VIVEK AZAD</div>
+
+        <!-- Details -->
+        <div class="info-container">
+            <div class="info-row">
+                <span class="label">Email ID:- </span>
+                <span class="email-val" contenteditable="true" title="Click to edit Email">vivekazad400@gmail.com</span>
+            </div>
+            
+            <div class="info-row">
+                <span class="label">Password:- </span>
+                <span class="pass-val" contenteditable="true" title="Click to edit Password">Vivek@1234</span>
+            </div>
+        </div>
+
+        <!-- Footer -->
+        <div class="footer-area">
+            <div class="create-by-text">Create By:-</div>
+            <img src="bottom.jpg" alt="Shop Footer Logo" class="bottom-img" onerror="this.style.display='none'">
+        </div>
+    </div>
+
+</body>
+</html>
